@@ -1,41 +1,40 @@
-'use strict'
+"use strict";
 
-const express = require('express');
-const path = require('path');
-const http = require('http');
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+const express = require("express");
+const http = require("http");
+const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
 
-const { app: appConf, email: emailConf, test: testConf } = require('./config');
+const { app: appConf, email: { sender, receiver, allowedEmails }, test: testConf } = require("./config");
 
 let app = express();
 let server = http.createServer(app);
 
 server.listen(appConf.port);
 
-app.use(bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+app.use(bodyParser.json() );
+app.use(bodyParser.urlencoded({
   extended: true
 }));
 
 const mailTransport = nodemailer.createTransport({
-  service: 'Gmail',
+  service: "Gmail",
   auth: {
-    user: emailConf.sender, // Your email id
-    pass: emailConf.password // Your password
+    user: sender.email,
+    pass: sender.password
   }
 });
 
 const mailTemplate = {
-  from: emailConf.sender,
-  to: emailConf.receiver,
+  from: "",
+  to: receiver,
   subject: "",
   text: ""
 };
 
-const test = require('./script/test')(testConf);
-const emailer = require('./script/email')(mailTransport, mailTemplate);
+const test = require("./script/test")(testConf);
+const emailer = require("./script/email")(allowedEmails, mailTransport, mailTemplate);
 
-require('./routes')(app, test, emailer);
+require("./routes")(app, test, emailer);
 
 console.log(`${appConf.name} running at port: ${appConf.port}`);

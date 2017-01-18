@@ -4,9 +4,12 @@ module.exports = {
     port: process.env.PORT || 3000
   },
   email: {
-    sender: "",
-    password: "",
-    receiver: "" // labs@adicu.com
+    sender: {
+      email: "",
+      password: ""
+    },
+    receiver: [],
+    allowedEmails: ["@columbia.edu", "@barnard.edu"]
   },
   test: {
     js: [
@@ -17,8 +20,8 @@ module.exports = {
           setTimeout(() => { console.log(3) }, 0);
           console.log(4);
         })();`,
-      `B) Explain the output of the following code and step by step explanation of the output
-        for (let i = 0; i < 5; i++) {
+      `B) Following snippet of code prints 5, 5, 5, 5, 5, even though it appears as if it should print 1, 2 , 3, 4, 5. Explain this behavior and a solution to this problem.
+        for (var i = 0; i < 5; i++) {
           setTimeout(() => { console.log(i); }, i * 1000 );
         }`,
       `C) What is IIFE in Javascript? Provide two examples and their usefulness`,

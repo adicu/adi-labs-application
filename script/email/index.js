@@ -1,4 +1,6 @@
-'use strict'
+"use strict";
+
+const re = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
 
 const mailGen = (template, payload) => {
   const { name: name, email: email, sol: solPre } = payload;
@@ -8,16 +10,21 @@ const mailGen = (template, payload) => {
 
   let newMail = template;
 
-  newMail["subject"] = `[Application] ${name}`;
-  newMail["text"] = `name: ${name}\nemail: ${email}\nsolution:\nJS\n${solJs}\nPython${solPy}`;
+  newMail.from = email;
+  newMail.subject = `[Application] ${name}`;
+  newMail.text = `name: ${name}\nemail: ${email}\nsolution:\nJS\n${solJs}\nPython${solPy}`;
 
   return newMail;
-}
+};
 
-module.exports = (mailTransport, mailTemplate) => {
+module.exports = (allowedEmails, mailTransport, mailTemplate) => {
   return {
-    sendMail: (payload, cb) => {
+    verifyEmail: (email) => {
+      return re.test(email) &&
+        allowedEmails.filter(x => email.indexOf(x, email.length - x.length) !== -1).length > 0;
+    },
+    sendEmail: (payload, cb) => {
       mailTransport.sendMail(mailGen(mailTemplate, payload), cb);
     }
-  }
+  };
 };

@@ -1,3 +1,14 @@
 {
-  "esversion": 6
+  "node"          : true,
+  "indent"        : 2,
+  "latedef"       : true,
+  "noempty"       : false,
+  "quotmark"      : "double",
+  "unused"        : true,
+  "strict"        : true,
+  "maxlen"        : 120,
+  "varstmt"       : true,
+
+  "esversion"     : 6,
+  "camelcase"     : false
 }
