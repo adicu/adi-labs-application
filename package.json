@@ -2,7 +2,7 @@
   "name": "ADI Labs 2017 Application",
   "version": "0.0.0",
   "scripts": {
-    "postinstall": "npm install"
+    "postinstall": "sudo npm install"
   },
   "dependencies": {
     "body-parser": "^1.16.0",

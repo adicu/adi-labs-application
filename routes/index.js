@@ -27,7 +27,11 @@ const submitDirection = "Submit your answer in the following format by" +
                         "sending a post request to /submit"
 
 module.exports = (app, tester, emailer) => {
-  app.get("/application", function(req, res) {
+  app.get("/", (req, res) => {
+    res.send("Hello!");
+  });
+
+  app.get("/application", (req, res) => {
     const response =
     `Questions:\n${tester.prompt()}\n${submitDirection}\n${format}`;
 
