@@ -37,14 +37,18 @@ module.exports = (app, tester, emailer) => {
   app.post("/submit", (req, res) => {
     const body = req.body;
 
-    const appName = body.name;
-    const appEmail = body.email;
-    const appSolution = body.solution;
+    if (!(body.hasOwnProperty("name") && body.hasOwnProperty("email") && body.hasOwnProperty("solution"))) {
+      res.send(`Incorrect submission format. It must follow:\n${format} \n\n Received: ${body}`);
+    }
 
-    emailer.sendMail({
-      name: appName,
-      email: appEmail,
-      sol: appSolution
+    let { name, email, solution } = body;
+
+    emailer.sendMail({ name: name, email: email, sol: solution }, (error, info) => {
+      if (error) {
+        res.send("There was an error. Please try submitting again");
+      }
+
+      res.send("Applicaiton received. We will get back to you shortly!");
     });
   })
 };

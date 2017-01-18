@@ -8,22 +8,16 @@ const mailGen = (template, payload) => {
 
   let newMail = template;
 
-  newMail[subject] = `[Application]${name}`;
-  newMail[text] = `email: ${email}\nsolution: JS\n${solJs}\nPython${solPy}`;
+  newMail["subject"] = `[Application] ${name}`;
+  newMail["text"] = `name: ${name}\nemail: ${email}\nsolution:\nJS\n${solJs}\nPython${solPy}`;
 
   return newMail;
 }
 
 module.exports = (mailTransport, mailTemplate) => {
   return {
-    sendMail: (payload) => {
-      mailTransport.sendMail(mailGen(mailTemplate, payload), (error, info) => {
-        if (error) {
-          return console.log(error);
-        }
-
-        console.log('Message sent: ' + info.response);
-      });
+    sendMail: (payload, cb) => {
+      mailTransport.sendMail(mailGen(mailTemplate, payload), cb);
     }
   }
 };
