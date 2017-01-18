@@ -12,10 +12,7 @@ let app = express();
 let server = http.createServer(app);
 
 server.listen(appConf.port);
-app.set('views', path.join(__dirname, 'public/views'));
-app.set('view engine', 'jade');
 
-app.use(express.static(path.join(__dirname, 'public/static')));
 app.use(bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true

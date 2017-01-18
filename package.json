@@ -1,7 +1,6 @@
 {
-  "name": "app-template",
+  "name": "ADI Labs 2017 Application",
   "version": "0.0.0",
-  "private": true,
   "dependencies": {
     "body-parser": "^1.16.0",
     "express": "^4.13.1",
