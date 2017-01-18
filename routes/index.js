@@ -6,7 +6,7 @@ module.exports = (app, tester, emailer) => {
   });
 
   app.get("/application", (req, res) => {
-    res.send(JSON.sttester.prompt());
+    res.send(tester.prompt());
   });
 
   app.post("/submit", (req, res) => {
