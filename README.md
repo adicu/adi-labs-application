@@ -1,5 +1,11 @@
-because express-generator sucks <br>
-bare minimal template for starting a node web app
+Coding challenge for ADI Labs
 
-npm install <br>
-node app.js
+Tests HTTP calls as well as JS/Python knowledge
+
+Add additional questions by modifing config/index.js file
+
+Currently deployed on Heroku using my personal account. 
+
+deploy:
+npm install && npm start
+

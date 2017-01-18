@@ -5,20 +5,8 @@ const format = `
     name: "your name",
     email: "your email",
     solution: {
-      js: [
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      python: [
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
+      js: [ ],
+      python: [ ]
     }
   }
 `;
