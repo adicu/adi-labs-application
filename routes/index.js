@@ -2,7 +2,7 @@
 
 module.exports = (app, tester, emailer) => {
   app.get("/", (_, res) => {
-    res.send("Hello!");
+    res.send("Begin this application by sending a get request to /application");
   });
 
   app.get("/application", (req, res) => {

@@ -23,7 +23,7 @@ const format = `
   }
 `;
 
-const submitDirection = "Submit your answer in the following format by" +
+const submitDirection = "Submit your answer in the following format by " +
                           "sending a post request to /submit";
 
 module.exports = (testConfig) => {
