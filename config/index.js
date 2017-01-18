@@ -5,10 +5,10 @@ module.exports = {
   },
   email: {
     sender: {
-      email: "",
-      password: ""
+      email: "adiLabsApplication@gmail.com",
+      password: "adiLabsApplication123"
     },
-    receiver: [],
+    receiver: ["hb2458@columbia.edu", "labs@adicu.com"],
     allowedEmails: ["@columbia.edu", "@barnard.edu"]
   },
   test: {
