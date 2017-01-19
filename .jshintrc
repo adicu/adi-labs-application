@@ -7,7 +7,6 @@
   "unused"        : true,
   "strict"        : true,
   "maxlen"        : 120,
-  "varstmt"       : true,
 
   "esversion"     : 6,
   "camelcase"     : false

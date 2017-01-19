@@ -2,7 +2,7 @@
 
 module.exports = (app, tester, emailer) => {
   app.get("/", (_, res) => {
-    res.send("Begin this application by sending a get request to /application");
+    res.send("Begin this application by sending a GET request to /application using curl or wget");
   });
 
   app.get("/application", (req, res) => {
@@ -12,7 +12,7 @@ module.exports = (app, tester, emailer) => {
   app.post("/submit", (req, res) => {
     const body = req.body;
 
-    if (!(body.hasOwnProperty("name") && body.hasOwnProperty("email") && body.hasOwnProperty("solution"))) {
+    if (!(body.hasOwnProperty("name") && body.hasOwnProperty("email") && body.hasOwnProperty("solution") &&)) {
       res.send(`Incorrect submission format. It must follow:\n${tester.answerFormat()} \n\n Received: ${body}`);
     }
 
