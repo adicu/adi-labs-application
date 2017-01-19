@@ -2,18 +2,19 @@
 
 const dedent = require("dedent-js");
 
-const submitDirection = "Submit your answer in the following format by " +
-                          "sending a post request to /submit";
+const submitDirection = "Submit your answer in the following format by sending a post request to /submit";
 
 module.exports = (testConfig) => {
+  const ans = Object.keys(testConfig).reduce((acc, category) => {
+    acc[category] = [];
+
+    return acc;
+  }, {});
+
   const format = JSON.stringify({
     "name": "your name",
     "email": "your email",
-    "solution": {
-      "GIT": [],
-      "JS": [],
-      "PYTHON": []
-    }
+    "solution": ans
   }, null, "  ");
 
   const questionBlock = Object.entries(testConfig).map(([mapKey, mapVal]) => {

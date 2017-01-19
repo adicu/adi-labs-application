@@ -3,17 +3,23 @@
 const re = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
 
 const mailGen = (template, payload) => {
-  const { name: name, email: email, sol: solPre } = payload;
+  const { name: name, email: applicant, sol: solPre } = payload;
 
-  const solGit = solPre.GIT.reduce((x, y) => `${x}\n${y}`);
-  const solJs = solPre.JS.reduce((x, y) => `${x}\n${y}`);
-  const solPy = solPre.PYTHON.reduce((x, y) => `${x}\n${y}`);
+  const solutionBlock = Object.entries(solPre).map(([mapKey, mapVal]) => {
+    const questions = mapVal.reduce((x, y) => `${x}\n\n${y}`);
+
+    return `${mapKey}\n${questions}\n\n`;
+  }).reduce((x, y) => x + y);
 
   let newMail = template;
+  let newMailList = template.to;
 
-  newMail.from = email;
+  newMailList.push(applicant);
+
+  newMail.from = applicant;
+  newMail.to = newMailList;
   newMail.subject = `[Application] ${name}`;
-  newMail.text = `name: ${name}\nemail: ${email}\nsolution:\nGit:${solGit}\nJS\n${solJs}\nPython${solPy}`;
+  newMail.text = `name: ${name}\nemail: ${applicant}\nsolution:\n${solutionBlock}`;
 
   return newMail;
 };
