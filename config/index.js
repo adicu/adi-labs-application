@@ -12,6 +12,13 @@ module.exports = {
     allowedEmails: ["@columbia.edu", "@barnard.edu"]
   },
   test: {
+    git: [
+      `A) What is the command to list all remote branches in a given git repository?`,
+      'B) Consider a repository with five files A, B, C, D and E and you modified B and C. How would you revert B to commit hash 123 and C to 234?',
+      `C) How would you merge branch ABC into branch CBA? How would you revert this merge?`,
+      `D) Say you changed files A, B and C. How would you push these changes to a remote master branch? Assume there is no merge conflict`,
+      `E) How would you keep your local repository up to date with changes your teammates pushed into "remote/deploy" branch?`
+    ],
     js: [
       `A) In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?
         (() => {

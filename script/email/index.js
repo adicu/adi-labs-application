@@ -5,6 +5,7 @@ const re = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*
 const mailGen = (template, payload) => {
   const { name: name, email: email, sol: solPre } = payload;
 
+  const solGit = solPre.git.reduce((x, y) => `${x}\n${y}`);
   const solJs = solPre.js.reduce((x, y) => `${x}\n${y}`);
   const solPy = solPre.python.reduce((x, y) => `${x}\n${y}`);
 
@@ -12,7 +13,7 @@ const mailGen = (template, payload) => {
 
   newMail.from = email;
   newMail.subject = `[Application] ${name}`;
-  newMail.text = `name: ${name}\nemail: ${email}\nsolution:\nJS\n${solJs}\nPython${solPy}`;
+  newMail.text = `name: ${name}\nemail: ${email}\nsolution:\nGit:${solGit}\nJS\n${solJs}\nPython${solPy}`;
 
   return newMail;
 };

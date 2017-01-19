@@ -17,7 +17,7 @@ module.exports = (app, tester, emailer) => {
     }
 
     const { name, email, solution } = body;
-    console.log(email);
+
     if (!emailer.verifyEmail(email)) {
       res.send(`Must use a valid columbia/barnard email: Email: ${email}`);
 
