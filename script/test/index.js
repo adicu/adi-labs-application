@@ -28,7 +28,7 @@ module.exports = (testConfig) => {
       return format;
     },
     prompt: () => {
-      return "You are not expected to answer all of these questions so just try your best!\n" +
+      return "Feel free to google. You are not expected to answer all of these questions so just try your best!\n" +
         `Questions:\n\n${questionBlock}${submitDirection}\n${format}\n`;
     }
   };
