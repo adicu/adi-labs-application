@@ -32,9 +32,9 @@ module.exports = {
         \t\tsetTimeout(() => { console.log(i); }, i * 1000 );
         \t}`,
       `C) Write a function that calculates the sum of numbers in a given array`,
-      `D) Describe how asynch`,
+      `D) Javascript is asynchronous. Describe what this means`,
       `E) Explain how 'this' keyword behaves in Javascript. Describe as much as you can including scoping, etc`,
-      `EXTRA) Write a funciton that would calculate occurrences of each alphabet in the following text 15 lines or less
+      `EXTRA) Write a funciton that would calculate occurrences of each letter in the following text 15 lines or less
         \tLorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
         \tharum eaque, corporis unde quos nemo accusamus officia amet ab quo ad
         \tlaudantium veritatis ipsum aperiam atque, minima quia inventore quaerat?`
@@ -49,7 +49,7 @@ module.exports = {
         \t\treturn [lambda x : i * x for i in range(4)]
 
         \tprint [m(2) for m in multipliers()]`,
-      `EXTRA) Write a funciton that would calculate occurrences of each alphabet in the following text 20 lines or less
+      `EXTRA) Write a funciton that would calculate occurrences of each letter in the following text 20 lines or less
         \tLorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
         \tharum eaque, corporis unde quos nemo accusamus officia amet ab quo ad
         \tlaudantium veritatis ipsum aperiam atque, minima quia inventore quaerat?`
