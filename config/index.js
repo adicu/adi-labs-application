@@ -28,7 +28,7 @@ module.exports = {
         \t\tconsole.log(4);
         \t})();`,
       `B) Following snippet of code prints 5, 5, 5, 5, 5, even though it appears as if it should print 0, 1, 2, 3, 4. Explain this behavior and a solution to this problem.
-        \tfor (let i = 0; i < 5; i++) {
+        \tfor (var i = 0; i < 5; i++) {
         \t\tsetTimeout(() => { console.log(i); }, i * 1000 );
         \t}`,
       `C) Write a function that calculates the sum of numbers in a given array`,
