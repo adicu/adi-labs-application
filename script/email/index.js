@@ -6,7 +6,7 @@ const mailGen = (template, payload) => {
   const { name: name, email: applicant, sol: solPre } = payload;
 
   const solutionBlock = Object.entries(solPre).map(([mapKey, mapVal]) => {
-    const questions = mapVal.reduce((x, y) => `${x}\n\n${y}`);
+    const questions = mapVal.length !== 0 ? mapVal.reduce((x, y) => `${x}\n\n${y}`) : "";
 
     return `${mapKey}\n${questions}\n\n`;
   }).reduce((x, y) => x + y);
