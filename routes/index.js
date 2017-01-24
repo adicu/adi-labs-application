@@ -13,7 +13,7 @@ module.exports = (app, tester, emailer) => {
     const body = req.body;
 
     if (!(body.hasOwnProperty("name") && body.hasOwnProperty("email") && body.hasOwnProperty("solution"))) {
-      res.send(`Incorrect submission format. It must follow:\n${tester.answerFormat()} \n\n Received: ${body}`);
+      res.send(`Incorrect submission format. It must follow:\n${tester.answerFormat()} \n\n Received: ${JSON.stringify(body)}`);
     }
 
     const { name, email, solution } = body;
