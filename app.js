@@ -7,12 +7,12 @@ const nodemailer = require("nodemailer");
 
 const { app: appConf, email: { sender, receiver, allowedEmails }, test: testConf } = require("./config");
 
-let app = express();
-let server = http.createServer(app);
+const app = express();
+const server = http.createServer(app);
 
 server.listen(appConf.port);
 
-app.use(bodyParser.json() );
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
